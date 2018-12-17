@@ -10,6 +10,9 @@ public class TeachManageApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TeachManageApplication.class, args);
+		
+		
+		//a
 	}
 
 }
