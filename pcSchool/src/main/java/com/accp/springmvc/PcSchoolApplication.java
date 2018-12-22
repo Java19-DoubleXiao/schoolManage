@@ -1,9 +1,13 @@
 package com.accp.springmvc;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
+@MapperScan(basePackages= {"com.accp.springmvc"})/*扫描mapper*/
+@EnableCaching
 public class PcSchoolApplication {
 
 	public static void main(String[] args) {
