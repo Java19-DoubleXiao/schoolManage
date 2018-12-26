@@ -12,6 +12,7 @@ public class ExamPaperHistory {
 	private String lastUpdTime;
 	private int lastUpdPerson;
 	private int isForbid;
+	private int mu1;
 	@Override
 	public String toString() {
 		return "ExamPaperHistory [paperId=" + paperId + ", epId=" + epId + ", paperName=" + paperName + ", passrate="
@@ -77,6 +78,12 @@ public class ExamPaperHistory {
 	}
 	public void setIsForbid(int isForbid) {
 		this.isForbid = isForbid;
+	}
+	public int getMu1() {
+		return mu1;
+	}
+	public void setMu1(int mu1) {
+		this.mu1 = mu1;
 	}
 	
 	

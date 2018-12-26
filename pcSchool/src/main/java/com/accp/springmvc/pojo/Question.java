@@ -9,6 +9,7 @@ public class Question {
 	private int teaId;
 	private int privary;
 	private int isDel;
+	private int tishu;
 	public int getQtId() {
 		return qtId;
 	}
@@ -55,6 +56,12 @@ public class Question {
 	public String toString() {
 		return "Question [qtId=" + qtId + ", qtQuest=" + qtQuest + ", knowId=" + knowId + ", qtSendTime=" + qtSendTime
 				+ ", teaId=" + teaId + ", privary=" + privary + ", isDel=" + isDel + "]";
+	}
+	public int getTishu() {
+		return tishu;
+	}
+	public void setTishu(int tishu) {
+		this.tishu = tishu;
 	}
 	
 	

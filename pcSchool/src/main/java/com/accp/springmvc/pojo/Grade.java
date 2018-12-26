@@ -2,13 +2,13 @@ package com.accp.springmvc.pojo;
 
 public class Grade {
 
-	private int gid;
+	private int gId;
 	private String gName;
-	public int getGid() {
-		return gid;
+	public int getgId() {
+		return gId;
 	}
-	public void setGid(int gid) {
-		this.gid = gid;
+	public void setgId(int gId) {
+		this.gId = gId;
 	}
 	public String getgName() {
 		return gName;
@@ -18,8 +18,9 @@ public class Grade {
 	}
 	@Override
 	public String toString() {
-		return "Grade [gid=" + gid + ", gName=" + gName + "]";
+		return "Grade [gId=" + gId + ", gName=" + gName + "]";
 	}
+	
 	
 	
 }

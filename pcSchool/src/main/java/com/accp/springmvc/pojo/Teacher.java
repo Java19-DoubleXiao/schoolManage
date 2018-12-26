@@ -16,7 +16,8 @@ public class Teacher {
 	  private String teaIdnumber;
 	  private String teaAddress;
 	  private String cId;
-	
+	  private int shu1;
+	  
 	public int getTeaId() {
 		return teaId;
 	}
@@ -107,6 +108,12 @@ public class Teacher {
 				+ teaPwd + ", teaImage=" + teaImage + ", teaType=" + teaType + ", teaPhone=" + teaPhone + ", teaSex="
 				+ teaSex + ", teabirth=" + teabirth + ", teaStartTime=" + teaStartTime + ", teaEndTime=" + teaEndTime
 				+ ", teaIdnumber=" + teaIdnumber + ", teaAddress=" + teaAddress + ", cId=" + cId + "]";
+	}
+	public int getShu1() {
+		return shu1;
+	}
+	public void setShu1(int shu1) {
+		this.shu1 = shu1;
 	}
 	  
 	  

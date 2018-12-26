@@ -5,6 +5,7 @@ public class Course {
 	private int courseId;
 	private String courseName;
 	private int bookId;
+	private int mu;
 	public int getCourseId() {
 		return courseId;
 	}
@@ -26,6 +27,12 @@ public class Course {
 	@Override
 	public String toString() {
 		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", bookId=" + bookId + "]";
+	}
+	public int getMu() {
+		return mu;
+	}
+	public void setMu(int mu) {
+		this.mu = mu;
 	}
 	
 }

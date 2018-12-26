@@ -16,6 +16,8 @@ public class Student {
 		private String stuIdnumber;
 		private String stuAddress;
 		private int cId;
+		private int shu;
+		
 		public int getStuId() {
 			return stuId;
 		}
@@ -113,6 +115,12 @@ public class Student {
 					+ stuImage + ", stuPhone=" + stuPhone + ", stuTyp=" + stuTyp + ", stuStartTime=" + stuStartTime
 					+ ", stuEndTime=" + stuEndTime + ", stuIdnumber=" + stuIdnumber + ", stuAddress=" + stuAddress
 					+ ", cId=" + cId + "]";
+		}
+		public int getShu() {
+			return shu;
+		}
+		public void setShu(int shu) {
+			this.shu = shu;
 		}
 		
 		
