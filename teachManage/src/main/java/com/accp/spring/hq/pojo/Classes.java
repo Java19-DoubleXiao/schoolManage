@@ -1,6 +1,7 @@
 package com.accp.spring.hq.pojo;
 
 import java.io.Serializable;
+
 import java.util.List;
 
 public class Classes implements Serializable{
@@ -8,6 +9,7 @@ public class Classes implements Serializable{
 	private String cName;
 	private int gId;
 	private List<Homework> hw;
+
 	public int getClassId() {
 		return classId;
 	}
@@ -26,6 +28,7 @@ public class Classes implements Serializable{
 	public void setgId(int gId) {
 		this.gId = gId;
 	}
+
 	public List<Homework> getHw() {
 		return hw;
 	}
