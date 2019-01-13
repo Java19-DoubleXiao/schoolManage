@@ -9,7 +9,7 @@ import com.accp.spring.mapper.TeacherMapper;
 import com.accp.spring.pojo.Teacher;
 @Service
 public class TeacherService {
-	@Autowired
+	/*@Autowired
 	TeacherMapper teacherMapper;
 	//更换头像
 	public int UpdateImage(String teaImage,int teaId ) {
@@ -51,6 +51,6 @@ public class TeacherService {
 		
 		
 	}
-	
+	*/
 
 }
