@@ -13,7 +13,7 @@ public class AcceptPerson implements Serializable{
 	private int informId;//通知Id	
 	private int acceptId; //接收人Id	家长Id、学员Id
 	private String readTime;//阅读时间①	第一次阅读时间，为null表示未读
-	
+	private int isDel;
 	
 	public int getId() {
 		return id;
@@ -55,22 +55,24 @@ public class AcceptPerson implements Serializable{
 	}
 
 
+	
+
+	public int getIsDel() {
+		return isDel;
+	}
+
+
+	public void setIsDel(int isDel) {
+		this.isDel = isDel;
+	}
+
+
 	@Override
 	public String toString() {
-		return "AcceptPerson [acceptId=" + acceptId + ", id=" + id + ", informId=" + informId + ", readTime=" + readTime
-				+ "]";
+		return "AcceptPerson [id=" + id + ", informId=" + informId + ", acceptId=" + acceptId + ", readTime=" + readTime
+				+ ", isDel=" + isDel + "]";
 	}
 	
-	
-	
-	/*
-	 通知接收人表	（AcceptPerson）	 	 
-字段	类型	字段描述	备注
-id	int	Id	 
-informId	int	通知Id	 
-acceptId	int	接收人Id	家长Id、学员Id
-readTime	datetime	阅读时间①	第一次阅读时间，为null表示未读
-	 */
 	
 
 }

@@ -13,8 +13,8 @@ public class LeaveProcessTrack implements Serializable{
 	private int leaveId;//请假id	关联 请假流程实例表
 	private int nodeId;	//流程节点Id	
 	private int handler; // 处理人【快照】	 员工id
-	private int suggestion;	// 处理意见
-	private int dealTime;// 处理时间	 
+	private String suggestion;	// 处理意见
+	private String dealTime;// 处理时间	 
 	private int dealResult;	// 处理结果①	通过1、拒绝2*/
 	public int getTrackId() {
 		return trackId;
@@ -40,16 +40,17 @@ public class LeaveProcessTrack implements Serializable{
 	public void setHandler(int handler) {
 		this.handler = handler;
 	}
-	public int getSuggestion() {
+	
+	public String getSuggestion() {
 		return suggestion;
 	}
-	public void setSuggestion(int suggestion) {
+	public void setSuggestion(String suggestion) {
 		this.suggestion = suggestion;
 	}
-	public int getDealTime() {
+	public String getDealTime() {
 		return dealTime;
 	}
-	public void setDealTime(int dealTime) {
+	public void setDealTime(String dealTime) {
 		this.dealTime = dealTime;
 	}
 	public int getDealResult() {

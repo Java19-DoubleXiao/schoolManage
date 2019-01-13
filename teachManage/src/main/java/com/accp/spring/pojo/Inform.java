@@ -14,6 +14,7 @@ public class Inform implements Serializable{
 	private String informTime;//	发通知时间	时间自动生成
 	private int sendPerson;//	发通知人	
 	private String acceptPerson;//接收通知班级①
+	private int isDel;
 	public int getInformId() {
 		return informId;
 	}
@@ -50,22 +51,20 @@ public class Inform implements Serializable{
 	public void setAcceptPerson(String acceptPerson) {
 		this.acceptPerson = acceptPerson;
 	}
+	
+	public int getIsDel() {
+		return isDel;
+	}
+	public void setIsDel(int isDel) {
+		this.isDel = isDel;
+	}
 	@Override
 	public String toString() {
 		return "Inform [informId=" + informId + ", informTypeId=" + informTypeId + ", informContent=" + informContent
-				+ ", informTime=" + informTime + ", sendPerson=" + sendPerson + ", acceptPerson=" + acceptPerson + "]";
+				+ ", informTime=" + informTime + ", sendPerson=" + sendPerson + ", acceptPerson=" + acceptPerson
+				+ ", isDel=" + isDel + "]";
 	}
 	
 	
-	
-	/**
-	 * 通知表	（Inform）	 	 
-字段	数据类型	字段描述	备注
-informId	int	通知Id	 
-informTypeId	int	通知类型Id	关联通知类型表
-informContent	Varchar(500)	通知内容	 
-informTime	DATETIME NULL DEFAULT CURRENT_TIMESTAMP	发通知时间	时间自动生成
-sendPerson	int	发通知人	
-acceptPerson	Varchar(100)	接收通知班级①	
-	 */
+
 }

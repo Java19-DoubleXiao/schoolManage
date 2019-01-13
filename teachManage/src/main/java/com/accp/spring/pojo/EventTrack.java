@@ -11,7 +11,7 @@ public class EventTrack implements Serializable{
 	private int etId;
 	private int eventId;//事件id	
 	private int talkId;//沟通人	
-	private int beTalkId;//跟谁沟通	
+	private String beTalkId;//跟谁沟通	
 	private String etContent;//沟通内容	
 	private String etRemark;//备注	
 	private String etTime;//事件记录时间	 	
@@ -34,10 +34,11 @@ public class EventTrack implements Serializable{
 	public void setTalkId(int talkId) {
 		this.talkId = talkId;
 	}
-	public int getBeTalkId() {
+	
+	public String getBeTalkId() {
 		return beTalkId;
 	}
-	public void setBeTalkId(int beTalkId) {
+	public void setBeTalkId(String beTalkId) {
 		this.beTalkId = beTalkId;
 	}
 	public String getEtContent() {
