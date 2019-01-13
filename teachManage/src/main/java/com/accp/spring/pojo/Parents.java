@@ -3,18 +3,19 @@ package com.accp.spring.pojo;
 import java.io.Serializable;
 
 public class Parents implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -480518650566656161L;
-	private int pId;
-	private String pName;
-	private int stuId;
-	private String pPwd;
-	private String pImage;
-	private int pSex;
-	private String cId;
+
+	private int pId;//家长表id
+	private String pName;//家长姓名
+	private int stuId;//学员Id
+	private String pPhone;//电话号码（通行证号）
+	private String pPwd;//密码
+	private String pImage;//头像
+	private int pSex;//性别1男2女
+	private String cId;//通知栏接收消息推送Id
+
+
 	public int getpId() {
 		return pId;
 	}
@@ -33,6 +34,14 @@ public class Parents implements Serializable{
 	public void setStuId(int stuId) {
 		this.stuId = stuId;
 	}
+
+	public String getpPhone() {
+		return pPhone;
+	}
+	public void setpPhone(String pPhone) {
+		this.pPhone = pPhone;
+	}
+
 	public String getpPwd() {
 		return pPwd;
 	}
@@ -59,19 +68,8 @@ public class Parents implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Parents [pId=" + pId + ", pName=" + pName + ", stuId=" + stuId + ", pPwd=" + pPwd + ", pImage=" + pImage
-				+ ", pSex=" + pSex + ", cId=" + cId + "]";
+		return "Parents [pId=" + pId + ", pName=" + pName + ", stuId=" + stuId + ", pPhone=" + pPhone + ", pPwd=" + pPwd
+				+ ", pImage=" + pImage + ", pSex=" + pSex + ", cId=" + cId + "]";
 	}
 	
-	
-	
-	
-	/*pId	int	id
-pName	Varchar(50)	家长姓名
-pPhone	Varchar(50)	家长电话号
-stuId	int	学员Id
-pPwd	Varchar(50)	密码
-pImage	Varchar(500)	头像
-pSex	int	性别
-cId	Varchar（200）	通知栏接收消息推送唯一Id*/
 }
