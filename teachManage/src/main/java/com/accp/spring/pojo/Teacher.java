@@ -17,6 +17,7 @@ public class Teacher implements Serializable{
 	private String teaIDnumber ;//'身份证号'
 	private String teaAddress ;//'家庭住址'
 	private String cId ;//'通知栏接收消息推送Id'
+	private int remember;
 	public int getTeaId() {
 		return teaId;
 	}
@@ -102,14 +103,21 @@ public class Teacher implements Serializable{
 		this.cId = cId;
 	}
 	
-	
+	public int getRemember() {
+		return remember;
+	}
+	public void setRemember(int remember) {
+		this.remember = remember;
+	}
 	@Override
 	public String toString() {
 		return "Teacher [teaId=" + teaId + ", teaName=" + teaName + ", teaUserName=" + teaUserName + ", teaPwd="
 				+ teaPwd + ", teaImage=" + teaImage + ", teaType=" + teaType + ", teaPhone=" + teaPhone + ", teaSex="
 				+ teaSex + ", teaBirth=" + teaBirth + ", teaStartTime=" + teaStartTime + ", teaEndTime=" + teaEndTime
-				+ ", teaIDnumber=" + teaIDnumber + ", teaAddress=" + teaAddress + ", cId=" + cId + "]";
+				+ ", teaIDnumber=" + teaIDnumber + ", teaAddress=" + teaAddress + ", cId=" + cId + ", remember="
+				+ remember + "]";
 	}
+	
 	
 	
 }
