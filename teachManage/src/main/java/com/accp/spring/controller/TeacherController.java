@@ -29,8 +29,6 @@ public class TeacherController {
 	}
 	
 	
-	
-	
 	@GetMapping("/loginIn")
 	public Object loginIn(String teaUserName) {
 		return this.teacherService.loginIn(teaUserName);
