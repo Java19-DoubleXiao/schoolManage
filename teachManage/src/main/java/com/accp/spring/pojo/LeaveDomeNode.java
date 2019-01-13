@@ -10,7 +10,7 @@ public class LeaveDomeNode implements Serializable{
 	private static final long serialVersionUID = 3065279246887603538L;
 	private int nodeId;
 	private int domeId;
-	private String node;
+	private int node;
 	private int handler;
 	
 	public int getNodeId() {
@@ -22,16 +22,17 @@ public class LeaveDomeNode implements Serializable{
 	public int getDomeId() {
 		return domeId;
 	}
+	
+	public int getNode() {
+		return node;
+	}
+	public void setNode(int node) {
+		this.node = node;
+	}
 	public void setDomeId(int domeId) {
 		this.domeId = domeId;
 	}
-	public String getNode() {
-		return node;
-	}
-
-	public void setNode(String node) {
-		this.node = node;
-	}
+	
 	public int getHandler() {
 		return handler;
 	}

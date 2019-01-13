@@ -13,7 +13,6 @@ public class Student implements Serializable{
 	private String stuImage;//'头像'
 	private String stuPhone;//'电话号码'
 	private int stuType;//'职业'
-	private int stuJob;//'性别'
 	private String stuStartTime;//'入学时间'
 	private String stuEndTime;//'离校时间'
 	private String stuIDnumber;//'身份证号'
@@ -79,12 +78,6 @@ public class Student implements Serializable{
 	public void setStuType(int stuType) {
 		this.stuType = stuType;
 	}
-	public int getStuJob() {
-		return stuJob;
-	}
-	public void setStuJob(int stuJob) {
-		this.stuJob = stuJob;
-	}
 	public String getStuStartTime() {
 		return stuStartTime;
 	}
@@ -119,10 +112,9 @@ public class Student implements Serializable{
 	public String toString() {
 		return "Student [stuId=" + stuId + ", stuName=" + stuName + ", stuUserName=" + stuUserName + ", stuPwd="
 				+ stuPwd + ", classId=" + classId + ", stuSex=" + stuSex + ", stuBirth=" + stuBirth + ", stuImage="
-				+ stuImage + ", stuPhone=" + stuPhone + ", stuType=" + stuType + ", stuJob=" + stuJob
-				+ ", stuStartTime=" + stuStartTime + ", stuEndTime=" + stuEndTime + ", stuIDnumber=" + stuIDnumber
-				+ ", stuAddress=" + stuAddress + ", cId=" + cId + "]";
+				+ stuImage + ", stuPhone=" + stuPhone + ", stuType=" + stuType + ", stuStartTime=" + stuStartTime
+				+ ", stuEndTime=" + stuEndTime + ", stuIDnumber=" + stuIDnumber + ", stuAddress=" + stuAddress
+				+ ", cId=" + cId + "]";
 	}
-	
-	
+
 }
