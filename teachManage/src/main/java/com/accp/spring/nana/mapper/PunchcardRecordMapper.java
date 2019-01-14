@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import com.accp.spring.nana.pojo.PunchCardRecord;
+import com.accp.spring.nana.pojo.PunchCardRecordVo;
 import com.accp.spring.nana.pojo.PunchCardSetting;
 import com.accp.spring.nana.pojo.Registerleave;
 import com.accp.spring.nana.vo.StudentPunchcardrecordVo;
@@ -34,7 +34,7 @@ public interface PunchcardRecordMapper {
 			"INNER JOIN student ON student.`stuId`=punchcardrecord.`stuId`\r\n" + 
 			"WHERE `punchTime` LIKE '%${punchTime}%' AND student.`stuSex`=2)) 'nvWei'\r\n" + 
 			"FROM `dormrelation` WHERE isUse=1 ")
-	PunchCardRecord selectSum(@Param("punchTime") String punchTime);
+	PunchCardRecordVo selectSum(@Param("punchTime") String punchTime);
 	
 	//住校总人数
 	@Select("SELECT COUNT(*) FROM `dormrelation` WHERE isUse=1")

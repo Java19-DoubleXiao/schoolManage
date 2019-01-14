@@ -22,8 +22,8 @@ import com.accp.spring.nana.vo.DormitoryVo;
 public interface DormitoryMapper {
 
 	//根据寝室类别查询所有寝室
-	@Select("SELECT * FROM dormitory  WHERE dormType=#{dormType}")
-	List<Dormitory> selectDormitory(@Param("dormType") int dormType);
+	@Select("SELECT * FROM dormitory  WHERE dormitory.`dormMangeId`=#{dormMangeId}")
+	List<Dormitory> selectDormitory(@Param("dormMangeId") int dormMangeId);
 	//查询寝室容纳总床数
 	@Select("SELECT bedCount  FROM dormitory  WHERE `dormId`=#{dormId}")
 	int selectBedCount(@Param("dormId") int dormId);

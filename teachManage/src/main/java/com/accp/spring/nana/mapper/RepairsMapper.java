@@ -21,19 +21,24 @@ public interface RepairsMapper {
 	@Select("SELECT dormitory.`dormNum`,dormitory.`dormId`,(SELECT COUNT(bedStates) FROM `bed` WHERE bedStates=3 AND dormitory.`dormId`=dormId)'spoilbed',\r\n" + 
 			"	(SELECT COUNT(bedStates) FROM `bed` WHERE bedStates!=3 AND dormitory.`dormId`=dormId)'sumbed',\r\n" + 
 			"	(SELECT COUNT(bedStates) FROM `bed` WHERE bedStates!=3 AND dormitory.`dormId`=dormId AND bedId IN (\r\n" + 
-			"	SELECT dormrelation.`bedId` FROM dormrelation WHERE dormrelation.`bedId` IN(\r\n" + 
+			"	SELECT dormrelation.`bedId` FROM dormrelation WHERE dormrelation.`isUse`=1 AND dormrelation.`bedId` IN(\r\n" + 
 			"		SELECT bedId FROM `bed` B WHERE B.dormId=dormitory.`dormId`\r\n" + 
 			"	)))'beding',((SELECT COUNT(bedStates) FROM `bed` WHERE bedStates!=3 AND dormitory.`dormId`=dormId)-(SELECT COUNT(bedStates) FROM `bed` WHERE bedStates=1 AND dormitory.`dormId`=dormId AND bedId IN (\r\n" + 
 			"	SELECT dormrelation.`bedId` FROM dormrelation WHERE dormrelation.`bedId` IN(\r\n" + 
 			"		SELECT bedId FROM `bed` B WHERE B.dormId=dormitory.`dormId`\r\n" + 
 			"	)))) 'emptyBed'\r\n" + 
 			"\r\n" + 
-			" FROM `dormitory` WHERE dormitory.`dormType`=#{dormType}")
-	public List<DormitoryVo> selectRepairStates(@Param("dormType") int dormType);
+			" FROM `dormitory` WHERE dormitory.`dormMangeId`=#{dormMangeId}")
+	public List<DormitoryVo> selectRepairStates(@Param("dormMangeId") int dormMangeId);
+	
+	
+	
 	
 	//报修记录查询
-	@Select("SELECT * FROM repairs WHERE repairs.`repairStates`=#{repairStates}")
-	public List<Repairs> selectRepairs(@Param("repairStates") int repairStates);
+	@Select("SELECT * FROM repairs \r\n" + 
+			"INNER JOIN dormitory ON dormitory.`dormId`=repairs.`dormId`\r\n" + 
+			"WHERE repairs.`repairStates`=#{repairStates} AND dormitory.`dormMangeId`=#{dormMangeId}")
+	public List<Repairs> selectRepairs(@Param("repairStates") int repairStates,@Param("dormMangeId") int dormMangeId);
 	
 	//报修详情查询
 	@Select("SELECT student.`stuName`,classes.`cName`,dormitory.`dormNum`,bed.`bedNum`,student.`stuPhone`,repairs.`repairItem`,repairs.`remark`\r\n" + 

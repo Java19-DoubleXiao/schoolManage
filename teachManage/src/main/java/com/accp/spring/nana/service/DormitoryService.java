@@ -19,8 +19,8 @@ public class DormitoryService {
 	@Autowired
 	private DormitoryMapper dormitoryMapper;
 	
-	public List<Dormitory> selectDormitory(int dormType){
-		return this.dormitoryMapper.selectDormitory(dormType);
+	public List<Dormitory> selectDormitory(int dormMangeId){
+		return this.dormitoryMapper.selectDormitory(dormMangeId);
 	}
 	
 	

@@ -47,11 +47,13 @@ public interface DormrelationMapper {
 	//查询换寝记录
 	@Select("SELECT ch.`id`, student.`stuName`,ch.`startTime`,b.`bedNum` 'YbedNum',d.`bedNum` 'XbedNum',dor.`dormNum` 'YdormNum',bor.`dormNum` 'XdormNum' FROM changeSleep ch\r\n" + 
 			"INNER JOIN student ON student.`stuId`=ch.`stuId`\r\n" + 
-			"INNER JOIN bed d ON d.`bedId`=ch.`YbedId`\r\n" + 
-			"INNER JOIN bed b ON b.`bedId`=ch.`XbedId`\r\n" + 
-			"INNER JOIN `dormitory` dor ON dor.`dormId`=d.`dormId`\r\n" + 
-			"INNER JOIN `dormitory` bor ON bor.`dormId`=b.`dormId` ORDER BY startTime DESC")
-	List<ChangeSleep> selectChangeSleepAll();
+			"INNER JOIN bed d ON d.`bedId`=ch.`YbedId` \r\n" + 
+			"INNER JOIN bed b ON b.`bedId`=ch.`XbedId` \r\n" + 
+			"INNER JOIN `dormitory` dor ON dor.`dormId`=d.`dormId` \r\n" + 
+			"INNER JOIN `dormitory` bor ON bor.`dormId`=b.`dormId` \r\n" + 
+			"WHERE dor.`dormMangeId`=#{dormMangeId}\r\n" + 
+			"ORDER BY startTime DESC")
+	List<ChangeSleep> selectChangeSleepAll(int dormMangeId);
 	//删除换寝记录
 	@Delete("delete from changeSleep where id=#{id}")
 	int deleteChangeSleep(@Param("id") int id);

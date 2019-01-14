@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.accp.spring.nana.pojo.PunchCardRecord;
+import com.accp.spring.nana.pojo.PunchCardRecordVo;
 import com.accp.spring.nana.service.PunchcardRecordService;
 import com.accp.spring.nana.vo.StudentPunchcardrecordVo;
 
@@ -23,7 +23,7 @@ public class PunchcardRecordController {
 	
 	//考勤人数
 	@GetMapping("/selectSum/{punchTime}")
-	public PunchCardRecord selectSum(@PathVariable String punchTime) {
+	public PunchCardRecordVo selectSum(@PathVariable String punchTime) {
 		return this.punchcardRecordService.selectSum(punchTime);
 	}
 	//住寝总人数
@@ -33,10 +33,10 @@ public class PunchcardRecordController {
 	}
 	//男女生总人数
 	@GetMapping("/selectNanSum")
-	public PunchCardRecord selectNanSum() {
+	public PunchCardRecordVo selectNanSum() {
 		int i=this.punchcardRecordService.selectNanSum(1);
 		int v=this.punchcardRecordService.selectNanSum(2);
-		PunchCardRecord pun=new PunchCardRecord();
+		PunchCardRecordVo pun=new PunchCardRecordVo();
 		pun.setNanSum(i);
 		pun.setNvSum(v);
 		return pun;

@@ -29,9 +29,9 @@ public class DormitoryController {
 	private DormitoryService dormitoryService;
 	
 	//根据寝室类别查询所有寝室
-	@GetMapping("/selectDormitory")
-	public Object selectDormitory() {
-		return this.dormitoryService.selectDormitory(1);
+	@GetMapping("/selectDormitory/{dormMangeId}")
+	public Object selectDormitory(@PathVariable int dormMangeId) {
+		return this.dormitoryService.selectDormitory(dormMangeId);
 	}
 	
 	//根据寝室id查询所有寝室床位相关的信息
