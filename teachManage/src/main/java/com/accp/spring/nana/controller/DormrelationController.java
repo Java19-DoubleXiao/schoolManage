@@ -40,9 +40,9 @@ public class DormrelationController {
 	public Object selectChangeSleep(String stuName,String startTime){
 		return this.dormrelationService.selectChangeSleep(stuName, startTime);
 	}
-	@GetMapping("/selectChangeSleepAll")
-	public Object selectChangeSleepAll() {
-		return this.dormrelationService.selectChangeSleepAll();
+	@GetMapping("/selectChangeSleepAll/{dormMangeId}")
+	public Object selectChangeSleepAll(@PathVariable int dormMangeId) {
+		return this.dormrelationService.selectChangeSleepAll(dormMangeId);
 	}
 	//删除换寝记录
 	@DeleteMapping("/deleteChangeSleep/{id}")

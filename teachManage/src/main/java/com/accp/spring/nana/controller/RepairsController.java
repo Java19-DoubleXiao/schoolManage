@@ -24,13 +24,13 @@ public class RepairsController {
 	RepairsService repairsService;
 	
 	//
-	@GetMapping("/selectRepairStates")
-	public Object selectRepairStates() {
-		return this.repairsService.selectRepairStates(1);
+	@GetMapping("/selectRepairStates/{dormMangeId}")
+	public Object selectRepairStates(@PathVariable int dormMangeId) {
+		return this.repairsService.selectRepairStates(dormMangeId);
 	}
-	@GetMapping("/selectRepairs/{repairStates}")
-	public Object selectRepairs(@PathVariable int repairStates) {
-		return this.repairsService.selectRepairs(repairStates);
+	@GetMapping("/selectRepairs/{repairStates}/{dormMangeId}")
+	public Object selectRepairs(@PathVariable int repairStates,@PathVariable int dormMangeId) {
+		return this.repairsService.selectRepairs(repairStates,dormMangeId);
 	}
 	@GetMapping("/selectRepairsDetail/{id}")
 	public Object selectRepairsDetail(@PathVariable int id) {

@@ -75,8 +75,8 @@ public class DormrelationService {
 		return this.dormrelationMapper.deleteChangeSleep(id);
 	}
 	//查询所有换寝记录
-	public Object selectChangeSleepAll(){
-		List<ChangeSleep> changeSleeps=this.dormrelationMapper.selectChangeSleepAll();
+	public Object selectChangeSleepAll(int dormMangeId){
+		List<ChangeSleep> changeSleeps=this.dormrelationMapper.selectChangeSleepAll(dormMangeId);
 		if(changeSleeps==null) {
 			return 0;
 		}

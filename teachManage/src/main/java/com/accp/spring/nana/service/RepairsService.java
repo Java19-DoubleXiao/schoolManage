@@ -17,12 +17,12 @@ public class RepairsService {
 	@Autowired
 	RepairsMapper repairsMapper;
 	
-	public List<DormitoryVo> selectRepairStates(int dormType){
-		return this.repairsMapper.selectRepairStates(dormType);
+	public List<DormitoryVo> selectRepairStates(int dormMangeId){
+		return this.repairsMapper.selectRepairStates(dormMangeId);
 	}
 	
-	public Object selectRepairs(int repairStates){
-		List<Repairs> repairs=this.repairsMapper.selectRepairs(repairStates);
+	public Object selectRepairs(int repairStates,int dormMangeId){
+		List<Repairs> repairs=this.repairsMapper.selectRepairs(repairStates,dormMangeId);
 		if(repairs==null) {
 			return 0;
 		}

@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.accp.spring.nana.mapper.PunchcardRecordMapper;
-import com.accp.spring.nana.pojo.PunchCardRecord;
+import com.accp.spring.nana.pojo.PunchCardRecordVo;
 import com.accp.spring.nana.pojo.PunchCardSetting;
 import com.accp.spring.nana.pojo.Registerleave;
 import com.accp.spring.nana.vo.StudentPunchcardrecordVo;
@@ -22,7 +22,7 @@ public class PunchcardRecordService {
 	@Autowired
 	PunchcardRecordMapper punchcardRecordMapper;
 	
-	public PunchCardRecord selectSum(String punchTime) {
+	public PunchCardRecordVo selectSum(String punchTime) {
 		return this.punchcardRecordMapper.selectSum(punchTime);
 	}
 	public int selectSums() {
