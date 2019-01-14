@@ -14,7 +14,7 @@ public class StuAttenceVo {
 	private String remark;//备注	 
 	private String time;//登记时间
 	private int recordPerson;//登记人
-	
+	private String setItem;
 	private String stuName;
 	private String stuImage;
 	public int getSaId() {
@@ -71,11 +71,17 @@ public class StuAttenceVo {
 	public void setStuImage(String stuImage) {
 		this.stuImage = stuImage;
 	}
+	public String getSetItem() {
+		return setItem;
+	}
+	public void setSetItem(String setItem) {
+		this.setItem = setItem;
+	}
 	@Override
 	public String toString() {
 		return "StuAttenceVo [saId=" + saId + ", stuId=" + stuId + ", setId=" + setId + ", score=" + score + ", remark="
-				+ remark + ", time=" + time + ", recordPerson=" + recordPerson + ", stuName=" + stuName + ", stuImage="
-				+ stuImage + "]";
+				+ remark + ", time=" + time + ", recordPerson=" + recordPerson + ", setItem=" + setItem + ", stuName="
+				+ stuName + ", stuImage=" + stuImage + "]";
 	}
 	
 	
