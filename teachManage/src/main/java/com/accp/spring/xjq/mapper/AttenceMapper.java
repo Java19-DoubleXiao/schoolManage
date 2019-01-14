@@ -111,4 +111,36 @@ public interface AttenceMapper {
 	StuAttenceVo selectZaoTuiByStuIdAndTime(@Param("stuId")int stuId, @Param("beginTime")String beginTime, @Param("endTime")String endTime);
 	
 	
+	/**
+	 * 查询纪律和卫生
+	 * @param beginTime
+	 * @param endTime
+	 * @param setId
+	 * @return
+	 */
+	@Select("SELECT saId,a.stuId,a.setId,setItem,score,remark,a.`time`,s.`stuName`,s.`stuImage` FROM stuattendance a\r\n" + 
+			"INNER JOIN scoresetting b ON a.`setId`=b.`setId`\r\n" + 
+			"INNER JOIN student s ON s.`stuId` = a.`stuId`\r\n" + 
+			"WHERE a.`time`  BETWEEN #{beginTime} AND #{endTime}\r\n" + 
+			"AND a.`setId` = #{setId} ORDER BY a.`time` DESC")
+	List<StuAttenceVo> selectJilvAndHealth(@Param("beginTime")String beginTime,@Param("endTime")String endTime,@Param("setId")int setId);
+	
+	
+	@Select("SELECT ss.`setId`,setItem,setSort,(SELECT COUNT(*) FROM stuattendance a\r\n" + 
+			"INNER JOIN scoresetting b ON a.`setId`=b.`setId`\r\n" + 
+			"WHERE a.`time` BETWEEN #{beginTime} AND #{endTime}\r\n" + 
+			"AND a.`setId`= ss.`setId`) `count` FROM scoresetting ss WHERE setType = 1")
+	List<SetItemVo> selectSetItemPersonalHealth(@Param("beginTime")String beginTime,@Param("endTime")String endTime);
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
 }
