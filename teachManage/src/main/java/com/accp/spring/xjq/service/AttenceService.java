@@ -380,29 +380,8 @@ public class AttenceService {
 			//29
 			endTime = year+"-"+mouth+"-29 23:59:59";
 		}
-		//List<KaoqinInfo> stuList = new ArrayList<KaoqinInfo>();
 		List<KaoqinInfo> kqList = this.attenceMapper.selectMouthKaoqinDetail(beginTime, endTime, setId, classId);
-		/*List<KaoqinInfo> kqList = this.attenceMapper.selectAttenceStuDetailBysetId(beginTime, endTime, setId, classId);
-		for (KaoqinInfo kq : kqList) {
-			kq.setCount(1);
-			System.out.println("first:"+stuList);
-			if(stuList.isEmpty()) {
-				System.out.println(1);
-				stuList.add(kq);
-			}else {
-				System.out.println(2);
-				for (KaoqinInfo stu : stuList) {
-					if(stu.getStuId()== kq.getStuId()) {
-						System.out.println(3);
-						stu.setCount(stu.getCount()+1);
-					}else {
-						System.out.println(4);
-						stuList.add(kq);
-					}
-				}
-			}
-			
-		}*/
+		
 		return kqList;
 	}
 	
@@ -439,9 +418,82 @@ public class AttenceService {
 		
 		return items;
 	}
+
+
+	/**
+	 * 按月查询纪律卫生
+	 * @param time
+	 * @return
+	 */
+	@Transactional
+	public List<SetItemVo> getMouthHealth(String time) {
+		int year = 0;
+		int mouth = 0;
+        String [] str=time.split("-");  
+        for (int i = 0; i < str.length; i++) {
+        	year = Integer.parseInt(str[0]);
+   	 	  	mouth = Integer.parseInt(str[1]);
+		}
+	 	 System.out.println(time+"分解后的单词个数为："+str.length+" nian:"+year+" yue:"+mouth);
+	 	 
+	 	 String beginTime = year+"-"+mouth+"-01";
+	 	 String endTime = "";
+		if(mouth==1 || mouth==3 || mouth==5 || mouth==7 || mouth==8 || mouth==10 || mouth==12) {
+			// 31
+			endTime = year+"-"+mouth+"-31 23:59:59";
+		}else if(mouth==4 || mouth==6 || mouth==9 || mouth==11) {
+			//30
+			endTime = year+"-"+mouth+"-30 23:59:59";
+		}else {
+			//29
+			endTime = year+"-"+mouth+"-29 23:59:59";
+		}
+		System.out.println("1 beginTime:"+beginTime+"    endTIme:"+endTime);
+		List<SetItemVo> items = this.attenceMapper.selectSetItemPersonalHealth(beginTime, endTime);
+		for (SetItemVo item : items) {
+			item.setStuAttences(this.attenceMapper.selectJilvAndHealth(beginTime, endTime, item.getSetId()));
+		}
+		
+		return items;
+	}
 	
-	
-	
+	/**
+	 * 按日查询纪律卫生
+	 * @param time
+	 * @return
+	 */
+	@Transactional
+	public List<SetItemVo> getDateHealth(String time) {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+		
+		//System.out.println();// new Date()为获取当前系统时间
+		String beginTime 	= "";
+		String endTime = "";
+		Calendar c = Calendar.getInstance();
+        try {
+			c.setTime(df.parse(time));
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+        c.add(Calendar.DAY_OF_MONTH, 1);// 今天+1天
+		
+		System.out.println("time:"+time);
+		if(time != null) {
+			beginTime = time +" 00:00:00";
+			endTime = df.format(c.getTime()) +" 00:00:00";
+		}else {
+			beginTime =  df.format(new Date()) +" 00:00:00";
+			endTime = df.format(new Date()) +" 00:00:00";
+		}
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println("ri beginTime:"+beginTime+"    endTIme:"+endTime);
+		List<SetItemVo> items = this.attenceMapper.selectSetItemPersonalHealth(beginTime, endTime);
+		for (SetItemVo item : items) {
+			item.setStuAttences(this.attenceMapper.selectJilvAndHealth(beginTime, endTime, item.getSetId()));
+		}
+		return items;
+	}
 	
 	
 	

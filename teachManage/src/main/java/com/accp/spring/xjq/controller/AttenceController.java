@@ -80,9 +80,15 @@ public class AttenceController {
 	}
 	
 	
+	@GetMapping("/getMouthHealth")
+	public List<SetItemVo> getMouthHealth(String time){
+		return this.attenceService.getMouthHealth( time);
+	}
 	
-	
-	
+	@GetMapping("/getDateHealth")
+	public List<SetItemVo> getDateHealth(String time){
+		return this.attenceService.getDateHealth(time);
+	}
 	
 	
 	
