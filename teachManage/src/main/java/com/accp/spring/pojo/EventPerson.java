@@ -13,6 +13,7 @@ public class EventPerson implements Serializable{
 	public int getPersonId() {
 		return personId;
 	}
+	
 	public void setPersonId(int personId) {
 		this.personId = personId;
 	}
