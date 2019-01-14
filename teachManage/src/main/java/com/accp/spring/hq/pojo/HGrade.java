@@ -2,7 +2,7 @@ package com.accp.spring.hq.pojo;
 
 import java.io.Serializable;
 
-public class Grade implements Serializable{
+public class HGrade implements Serializable{
 	private int gId;
 	private String gName;
 	public int getgId() {
