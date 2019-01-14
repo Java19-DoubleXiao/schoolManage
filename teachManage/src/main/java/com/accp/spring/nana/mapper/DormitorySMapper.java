@@ -9,9 +9,9 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
-import com.accp.spring.nana.pojo.Bed;
-import com.accp.spring.nana.pojo.Dormitory;
-import com.accp.spring.nana.pojo.Dormrelation;
+import com.accp.spring.nana.pojo.BedS;
+import com.accp.spring.nana.pojo.DormitoryS;
+import com.accp.spring.nana.pojo.DormrelationS;
 import com.accp.spring.nana.vo.DormitoryVo;
 /**
  * 寝室床位mapper
@@ -19,24 +19,24 @@ import com.accp.spring.nana.vo.DormitoryVo;
  *
  */
 @Repository
-public interface DormitoryMapper {
+public interface DormitorySMapper {
 
 	//根据寝室类别查询所有寝室
 	@Select("SELECT * FROM dormitory  WHERE dormitory.`dormMangeId`=#{dormMangeId}")
-	List<Dormitory> selectDormitory(@Param("dormMangeId") int dormMangeId);
+	List<DormitoryS> selectDormitory(@Param("dormMangeId") int dormMangeId);
 	//查询寝室容纳总床数
 	@Select("SELECT bedCount  FROM dormitory  WHERE `dormId`=#{dormId}")
 	int selectBedCount(@Param("dormId") int dormId);
 	//新增寝室
 	@Insert("INSERT INTO dormitory(dormNum,dormMangeId,adminId,dormType)\r\n" + 
 			"VALUES(#{dormNum},#{dormMangeId},#{adminId},#{dormType})")
-	int insertDormitory(Dormitory dormitory);
+	int insertDormitory(DormitoryS dormitory);
 	//删除寝室
 	@Delete("delete from dormitory where dormId=#{dormId}")
 	int deleteDormitory(@Param("dormId") int dormId);
 	//根据寝室id查询寝室情况
 	@Select("SELECT * FROM dormitory WHERE dormId=#{dormId}")
-	Dormitory selectOne(@Param("dormId") int dormId);
+	DormitoryS selectOne(@Param("dormId") int dormId);
 	//设置寝室长
 	@Update("update dormitory set adminId=#{adminId} where dormId=#{dormId}")
 	int updateAdmin(@Param("adminId") int adminId,@Param("dormId") int dormId);
@@ -64,14 +64,14 @@ public interface DormitoryMapper {
 	
 	//根据寝室id查询所有床位
 	@Select(" SELECT * FROM bed WHERE bed.`dormId`=#{dormId}")
-	public List<Bed> selectStates(@Param("dormId") int dormId);
+	public List<BedS> selectStates(@Param("dormId") int dormId);
 	
 	@Select("SELECT * FROM dormrelation WHERE bedId = #{bedId} AND dormrelation.`isUse`=1")
-	public Dormrelation selectDormrelation(@Param("bedId") int bedId);
+	public DormrelationS selectDormrelation(@Param("bedId") int bedId);
 	//新增床位
 	@Insert("INSERT INTO bed(dormId,bedNum,bedStates)\r\n" + 
 			"VALUES(#{dormId},#{bedNum},#{bedStates})")
-	int insertBed(Bed bed);
+	int insertBed(BedS bed);
 	//删除床位
 	@Delete("delete from bed where bedId=#{bedId}")
 	int deleteBed(@Param("bedId") int bedId);
@@ -83,5 +83,5 @@ public interface DormitoryMapper {
 	int bedCount(@Param("dormId") int dormId);
 	//根据寝室id查询所有空白床位
 	@Select("SELECT * FROM bed INNER JOIN dormitory ON dormitory.`dormId`=bed.`dormId` WHERE bed.`bedStates`=2 AND bed.`dormId`=#{dormId}")
-	List<Bed> selectEmptyBed(@Param("dormId") int dormId);
+	List<BedS> selectEmptyBed(@Param("dormId") int dormId);
 }

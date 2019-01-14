@@ -2,7 +2,7 @@ package com.accp.spring.nana.vo;
 
 import java.util.List;
 
-import com.accp.spring.nana.pojo.Healthrecordimg;
+import com.accp.spring.nana.pojo.HealthrecordimgS;
 
 public class HealthrecordVo {
 	private int id;//寝室卫生检查id
@@ -22,12 +22,12 @@ public class HealthrecordVo {
 	private int setScore; //扣分数目
 	private int setType; //扣分类型
 	private int setSort; //扣分类别
-	private List<Healthrecordimg> healthrecordimgs;
+	private List<HealthrecordimgS> healthrecordimgs;
 	
-	public List<Healthrecordimg> getHealthrecordimgs() {
+	public List<HealthrecordimgS> getHealthrecordimgs() {
 		return healthrecordimgs;
 	}
-	public void setHealthrecordimgs(List<Healthrecordimg> healthrecordimgs) {
+	public void setHealthrecordimgs(List<HealthrecordimgS> healthrecordimgs) {
 		this.healthrecordimgs = healthrecordimgs;
 	}
 	public int getId() {

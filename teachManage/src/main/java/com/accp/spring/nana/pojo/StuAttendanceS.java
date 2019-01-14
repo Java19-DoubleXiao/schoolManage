@@ -2,7 +2,7 @@ package com.accp.spring.nana.pojo;
 
 import java.io.Serializable;
 
-public class StuAttendance implements Serializable{
+public class StuAttendanceS implements Serializable{
 	
 	/**
 	 * 个人考勤记录表	

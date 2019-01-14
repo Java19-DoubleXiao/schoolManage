@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.accp.spring.nana.pojo.Bed;
-import com.accp.spring.nana.pojo.Dormitory;
+import com.accp.spring.nana.pojo.BedS;
+import com.accp.spring.nana.pojo.DormitoryS;
 import com.accp.spring.nana.service.DormitoryService;
 @CrossOrigin
 @RestController
@@ -53,7 +53,7 @@ public class DormitoryController {
 	}
 	//查询寝室情况
 	@GetMapping("/selectOne/{dormId}")
-	public Dormitory selectOne(@PathVariable int dormId){
+	public DormitoryS selectOne(@PathVariable int dormId){
 		return this.dormitoryService.selectOne(dormId);
 	}
 	//设置寝室长
@@ -77,7 +77,7 @@ public class DormitoryController {
 	}
 	//新增床位
 	@PostMapping("/insertBed")
-	public int insertBed(@RequestBody Bed bed) {
+	public int insertBed(@RequestBody BedS bed) {
 		return this.dormitoryService.insertBed(bed);
 	}
 	//根据寝室id查询所有空白床位

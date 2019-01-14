@@ -5,16 +5,16 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import com.accp.spring.nana.pojo.PunchCardRecordVo;
-import com.accp.spring.nana.pojo.PunchCardSetting;
-import com.accp.spring.nana.pojo.Registerleave;
+import com.accp.spring.nana.pojo.PunchCardRecordS;
+import com.accp.spring.nana.pojo.PunchCardSettingS;
+import com.accp.spring.nana.pojo.RegisterleaveS;
 import com.accp.spring.nana.vo.StudentPunchcardrecordVo;
 /**
  * 打卡记录表
  * @author 巴拉巴拉大灰狼
  *
  */
-public interface PunchcardRecordMapper {
+public interface PunchcardRecordSMapper {
 	//寝室考勤
 	@Select("SELECT COUNT(*) 'sum',\r\n" + 
 			"(SELECT COUNT(*) FROM punchcardrecord\r\n" + 
@@ -34,7 +34,7 @@ public interface PunchcardRecordMapper {
 			"INNER JOIN student ON student.`stuId`=punchcardrecord.`stuId`\r\n" + 
 			"WHERE `punchTime` LIKE '%${punchTime}%' AND student.`stuSex`=2)) 'nvWei'\r\n" + 
 			"FROM `dormrelation` WHERE isUse=1 ")
-	PunchCardRecordVo selectSum(@Param("punchTime") String punchTime);
+	PunchCardRecordS selectSum(@Param("punchTime") String punchTime);
 	
 	//住校总人数
 	@Select("SELECT COUNT(*) FROM `dormrelation` WHERE isUse=1")
@@ -56,8 +56,8 @@ public interface PunchcardRecordMapper {
 	List<StudentPunchcardrecordVo> selectPun(@Param("beginTime")String beginTime,@Param("lateTime")String lateTime,@Param("dormMangeId") int dormMangeId);
 	//查询扣分规则
 	@Select("SELECT * FROM punchcardsetting WHERE punchId = #{punchId}")
-	PunchCardSetting selectSetting(@Param("punchId")int punchId);
+	PunchCardSettingS selectSetting(@Param("punchId")int punchId);
 	//根据考勤时间查询不住寝登记表
 	@Select("SELECT *FROM registerleave WHERE #{beginTime} BETWEEN startTime and endTime ")
-	List<Registerleave> selectRegisterleave(@Param("beginTime") String beginTime);
+	List<RegisterleaveS> selectRegisterleave(@Param("beginTime") String beginTime);
 }

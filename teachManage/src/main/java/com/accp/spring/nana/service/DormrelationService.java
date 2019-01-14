@@ -14,22 +14,22 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.accp.spring.nana.mapper.DormitoryMapper;
-import com.accp.spring.nana.mapper.DormrelationMapper;
-import com.accp.spring.nana.pojo.ChangeSleep;
-import com.accp.spring.nana.pojo.Dormrelation;
+import com.accp.spring.nana.mapper.DormitorySMapper;
+import com.accp.spring.nana.mapper.DormrelationSMapper;
+import com.accp.spring.nana.pojo.ChangeSleepS;
+import com.accp.spring.nana.pojo.DormrelationS;
 import com.accp.spring.nana.vo.DormrelationVo;
 
 @Service
 public class DormrelationService {
 	
 	@Autowired
-	DormrelationMapper dormrelationMapper;
+	DormrelationSMapper dormrelationMapper;
 	@Autowired
-	DormitoryMapper dormitoryMapper;
+	DormitorySMapper dormitoryMapper;
 	
 	@Transactional
-	public void move(Dormrelation dormrelation,int bedId) {
+	public void move(DormrelationS dormrelation,int bedId) {
 		//新增一条寝室与学员关系数据
 		this.dormrelationMapper.insertDormrelation(dormrelation);
 		//原床位损坏为3
@@ -63,7 +63,7 @@ public class DormrelationService {
 	/*换寝记录*/
 	//根据姓名、时间模糊查询所有换寝记录
 	public Object selectChangeSleep(String stuName,String startTime){
-		List<ChangeSleep> changeSleeps=this.dormrelationMapper.selectChangeSleep(stuName, startTime);
+		List<ChangeSleepS> changeSleeps=this.dormrelationMapper.selectChangeSleep(stuName, startTime);
 		if(changeSleeps==null) {
 			return 0;
 		}
@@ -76,7 +76,7 @@ public class DormrelationService {
 	}
 	//查询所有换寝记录
 	public Object selectChangeSleepAll(int dormMangeId){
-		List<ChangeSleep> changeSleeps=this.dormrelationMapper.selectChangeSleepAll(dormMangeId);
+		List<ChangeSleepS> changeSleeps=this.dormrelationMapper.selectChangeSleepAll(dormMangeId);
 		if(changeSleeps==null) {
 			return 0;
 		}

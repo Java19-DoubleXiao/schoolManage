@@ -2,7 +2,7 @@ package com.accp.spring.nana.pojo;
 
 import java.io.Serializable;
 
-public class ChangeSleep implements Serializable{
+public class ChangeSleepS implements Serializable{
 
 	/**
 	 * 

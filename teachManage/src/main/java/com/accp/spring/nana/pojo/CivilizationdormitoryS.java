@@ -6,7 +6,7 @@ import java.io.Serializable;
  * @author 巴拉巴拉大灰狼
  *
  */
-public class Civilizationdormitory implements Serializable{
+public class CivilizationdormitoryS implements Serializable{
 	private int id;//文明寝室id
 	private int dormId;//寝室ID
 	private String startTime;//开始评选时间

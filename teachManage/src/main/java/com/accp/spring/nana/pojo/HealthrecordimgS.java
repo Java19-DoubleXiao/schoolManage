@@ -6,7 +6,7 @@ import java.io.Serializable;
  * @author 巴拉巴拉大灰狼
  *
  */
-public class Healthrecordimg implements Serializable{
+public class HealthrecordimgS implements Serializable{
 	private int imgId;//图片id
 	private int HealthRecordId;//查寝事件记录Id
 	private int dormMangeId;//宿管Id

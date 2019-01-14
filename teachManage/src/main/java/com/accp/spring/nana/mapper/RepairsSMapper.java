@@ -7,8 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.accp.spring.nana.pojo.Bed;
-import com.accp.spring.nana.pojo.Repairs;
+import com.accp.spring.nana.pojo.BedS;
+import com.accp.spring.nana.pojo.RepairsS;
 import com.accp.spring.nana.vo.DormitoryVo;
 import com.accp.spring.nana.vo.RepairsVo;
 /**
@@ -16,7 +16,7 @@ import com.accp.spring.nana.vo.RepairsVo;
  * @author 巴拉巴拉大灰狼
  *
  */
-public interface RepairsMapper {
+public interface RepairsSMapper {
 	
 	@Select("SELECT dormitory.`dormNum`,dormitory.`dormId`,(SELECT COUNT(bedStates) FROM `bed` WHERE bedStates=3 AND dormitory.`dormId`=dormId)'spoilbed',\r\n" + 
 			"	(SELECT COUNT(bedStates) FROM `bed` WHERE bedStates!=3 AND dormitory.`dormId`=dormId)'sumbed',\r\n" + 
@@ -38,7 +38,7 @@ public interface RepairsMapper {
 	@Select("SELECT * FROM repairs \r\n" + 
 			"INNER JOIN dormitory ON dormitory.`dormId`=repairs.`dormId`\r\n" + 
 			"WHERE repairs.`repairStates`=#{repairStates} AND dormitory.`dormMangeId`=#{dormMangeId}")
-	public List<Repairs> selectRepairs(@Param("repairStates") int repairStates,@Param("dormMangeId") int dormMangeId);
+	public List<RepairsS> selectRepairs(@Param("repairStates") int repairStates,@Param("dormMangeId") int dormMangeId);
 	
 	//报修详情查询
 	@Select("SELECT student.`stuName`,classes.`cName`,dormitory.`dormNum`,bed.`bedNum`,student.`stuPhone`,repairs.`repairItem`,repairs.`remark`\r\n" + 

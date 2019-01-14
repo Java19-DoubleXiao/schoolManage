@@ -7,24 +7,24 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.accp.spring.nana.mapper.DormitoryMapper;
-import com.accp.spring.nana.pojo.Bed;
-import com.accp.spring.nana.pojo.Dormitory;
-import com.accp.spring.nana.pojo.Dormrelation;
+import com.accp.spring.nana.mapper.DormitorySMapper;
+import com.accp.spring.nana.pojo.BedS;
+import com.accp.spring.nana.pojo.DormitoryS;
+import com.accp.spring.nana.pojo.DormrelationS;
 import com.accp.spring.nana.vo.DormitoryVo;
 
 @Service
 public class DormitoryService {
 
 	@Autowired
-	private DormitoryMapper dormitoryMapper;
+	private DormitorySMapper dormitoryMapper;
 	
-	public List<Dormitory> selectDormitory(int dormMangeId){
+	public List<DormitoryS> selectDormitory(int dormMangeId){
 		return this.dormitoryMapper.selectDormitory(dormMangeId);
 	}
 	
 	
-	public int insertDormitory(Dormitory dormitory) {
+	public int insertDormitory(DormitoryS dormitory) {
 		return this.dormitoryMapper.insertDormitory(dormitory);
 	}
 	
@@ -42,7 +42,7 @@ public class DormitoryService {
 		
 	}
 	//查询寝室情况
-	public Dormitory selectOne(int dormId) {
+	public DormitoryS selectOne(int dormId) {
 		return this.dormitoryMapper.selectOne(dormId);
 	}
 	//设置寝室长
@@ -59,7 +59,7 @@ public class DormitoryService {
 	public List<DormitoryVo> selectBed(int dormId){
 		return this.dormitoryMapper.selectBed(dormId);
 	}
-	public int insertBed(Bed bed) {
+	public int insertBed(BedS bed) {
 		return this.dormitoryMapper.insertBed(bed);
 		
 	}
@@ -68,9 +68,9 @@ public class DormitoryService {
 	}
 	
 	public Object selectStates(int dormId){
-		List<Bed> bed=this.dormitoryMapper.selectStates(dormId);
-		for (Bed bed2 : bed) {
-			Dormrelation dormrelation= this.dormitoryMapper.selectDormrelation(bed2.getBedId());
+		List<BedS> bed=this.dormitoryMapper.selectStates(dormId);
+		for (BedS bed2 : bed) {
+			DormrelationS dormrelation= this.dormitoryMapper.selectDormrelation(bed2.getBedId());
 			if(dormrelation!=null) {
 				bed2.setStuId(dormrelation.getStuId());
 			}
@@ -82,7 +82,7 @@ public class DormitoryService {
 	public int updateBed(int bedStates,int bedId) {
 		return this.dormitoryMapper.updateBed(bedStates,bedId);
 	}
-	public List<Bed> selectEmptyBed(int dormId){
+	public List<BedS> selectEmptyBed(int dormId){
 		return this.dormitoryMapper.selectEmptyBed(dormId);
 	}
 }

@@ -7,7 +7,7 @@ import java.util.List;
  * @author 巴拉巴拉大灰狼
  *
  */
-public class Healthrecord implements Serializable{
+public class HealthrecordS implements Serializable{
 
 	private int id;//寝室卫生检查id
 	private int setId;//扣分制度Id
@@ -17,7 +17,7 @@ public class Healthrecord implements Serializable{
 	private String remark;//'备注'
 	private int score;//扣分数目
 	private int checkPerson;//'检查人（宿管Id）
-	private List<Healthrecordimg> healthrecordimgs;//寝室卫生检查图片集合
+	private List<HealthrecordimgS> healthrecordimgs;//寝室卫生检查图片集合
 	
 	public int getCheckId() {
 		return checkId;
@@ -73,10 +73,10 @@ public class Healthrecord implements Serializable{
 	public void setCheckPerson(int checkPerson) {
 		this.checkPerson = checkPerson;
 	}
-	public List<Healthrecordimg> getHealthrecordimgs() {
+	public List<HealthrecordimgS> getHealthrecordimgs() {
 		return healthrecordimgs;
 	}
-	public void setHealthrecordimgs(List<Healthrecordimg> healthrecordimgs) {
+	public void setHealthrecordimgs(List<HealthrecordimgS> healthrecordimgs) {
 		this.healthrecordimgs = healthrecordimgs;
 	}
 	@Override
@@ -85,14 +85,14 @@ public class Healthrecord implements Serializable{
 				+ ", checkTime=" + checkTime + ", remark=" + remark + ", score=" + score + ", checkPerson="
 				+ checkPerson + ", healthrecordimgs=" + healthrecordimgs + "]";
 	}
-	public Healthrecord(int setId, int checkId, int score, int checkPerson) {
+	public HealthrecordS(int setId, int checkId, int score, int checkPerson) {
 		super();
 		this.setId = setId;
 		this.checkId = checkId;
 		this.score = score;
 		this.checkPerson = checkPerson;
 	}
-	public Healthrecord() {
+	public HealthrecordS() {
 		
 	}
 	
