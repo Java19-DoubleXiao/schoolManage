@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.accp.spring.hq.mapper.ExamMapper;
-import com.accp.spring.hq.mapper.StudentMapper;
+import com.accp.spring.hq.mapper.HStudentMapper;
 import com.accp.spring.hq.pojo.ExamPaperHistory;
 import com.accp.spring.hq.pojo.Examination;
 import com.accp.spring.hq.pojo.StuTest;
@@ -20,7 +20,7 @@ public class ExamService {
 	@Autowired
 	private ExamMapper examMapper;
 	@Autowired
-	private StudentMapper studentMapper;
+	private HStudentMapper studentMapper;
 	
 	//查出这个教员所教的班级的考试      条件：班级id
 	public List<Examination> selectAllExam(int classId){

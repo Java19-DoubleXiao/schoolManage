@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.accp.spring.hq.mapper.StudentMapper;
-import com.accp.spring.hq.mapper.TeacherMapper;
+import com.accp.spring.hq.mapper.HStudentMapper;
+import com.accp.spring.hq.mapper.HTeacherMapper;
 import com.accp.spring.hq.mapper.WorkMapper;
-import com.accp.spring.hq.pojo.Classes;
+import com.accp.spring.hq.pojo.HClasses;
 import com.accp.spring.hq.pojo.Homework;
 import com.accp.spring.hq.pojo.Workfinish;
 import com.accp.spring.hq.vo.StuCount;
@@ -24,16 +24,16 @@ public class WorkService {
 	@Autowired
 	private WorkMapper workMapper;
 	@Autowired
-	private TeacherMapper teacherMapper;
+	private HTeacherMapper teacherMapper;
 	@Autowired
-	private StudentMapper studentMapper;
+	private HStudentMapper studentMapper;
 	
 	
 	//查询教员所教的班以及所布置的作业
 	@Transactional
 	public Object selectWork(int teaId){
-		List<Classes> classes = this.teacherMapper.selectClassByTea(teaId);
-		for (Classes cl : classes) {
+		List<HClasses> classes = this.teacherMapper.selectClassByTea(teaId);
+		for (HClasses cl : classes) {
 			cl.setHw(this.workMapper.selectByClaIdAndTeaId(teaId, cl.getClassId()));
 			for (Homework homework : cl.getHw()) {
 				StuCount status = this.workMapper.selectDengji(teaId,homework.getWorkId(),cl.getClassId());
