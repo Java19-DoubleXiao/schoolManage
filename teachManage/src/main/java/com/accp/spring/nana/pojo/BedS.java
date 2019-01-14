@@ -6,7 +6,7 @@ import java.io.Serializable;
  * @author 巴拉巴拉大灰狼
  *
  */
-public class Bed implements Serializable{
+public class BedS implements Serializable{
 	private int bedId;//床位Id
 	private int dormId;//寝室Id
 	private String bedNum;//床位号码

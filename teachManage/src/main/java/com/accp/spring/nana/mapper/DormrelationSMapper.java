@@ -9,15 +9,15 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.accp.spring.nana.pojo.ChangeSleep;
-import com.accp.spring.nana.pojo.Dormrelation;
+import com.accp.spring.nana.pojo.ChangeSleepS;
+import com.accp.spring.nana.pojo.DormrelationS;
 import com.accp.spring.nana.vo.DormrelationVo;
 
-public interface DormrelationMapper {
+public interface DormrelationSMapper {
 	//新增一条寝室与学员关系表数据
 	@Insert("INSERT INTO dormrelation(stuId,bedId,isUse)\r\n" + 
 			"VALUES(#{stuId},#{bedId},1)")
-	int insertDormrelation(Dormrelation dormrelation);
+	int insertDormrelation(DormrelationS dormrelation);
 	
 	
 	//修改一条寝室与学员关系表数据的isuse=2
@@ -43,7 +43,7 @@ public interface DormrelationMapper {
 			"INNER JOIN `dormitory` dor ON dor.`dormId`=d.`dormId`\r\n" + 
 			"INNER JOIN `dormitory` bor ON bor.`dormId`=b.`dormId`\r\n" + 
 			"WHERE student.`stuName` LIKE '%${stuName}%' OR ch.`startTime`LIKE binary '%${startTime}%' ORDER BY startTime DESC")
-	List<ChangeSleep> selectChangeSleep(@Param("stuName") String stuName,@Param("startTime") String startTime);
+	List<ChangeSleepS> selectChangeSleep(@Param("stuName") String stuName,@Param("startTime") String startTime);
 	//查询换寝记录
 	@Select("SELECT ch.`id`, student.`stuName`,ch.`startTime`,b.`bedNum` 'YbedNum',d.`bedNum` 'XbedNum',dor.`dormNum` 'YdormNum',bor.`dormNum` 'XdormNum' FROM changeSleep ch\r\n" + 
 			"INNER JOIN student ON student.`stuId`=ch.`stuId`\r\n" + 
@@ -53,7 +53,7 @@ public interface DormrelationMapper {
 			"INNER JOIN `dormitory` bor ON bor.`dormId`=b.`dormId` \r\n" + 
 			"WHERE dor.`dormMangeId`=#{dormMangeId}\r\n" + 
 			"ORDER BY startTime DESC")
-	List<ChangeSleep> selectChangeSleepAll(int dormMangeId);
+	List<ChangeSleepS> selectChangeSleepAll(int dormMangeId);
 	//删除换寝记录
 	@Delete("delete from changeSleep where id=#{id}")
 	int deleteChangeSleep(@Param("id") int id);

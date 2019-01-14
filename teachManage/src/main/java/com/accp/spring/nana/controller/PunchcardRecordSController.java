@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.accp.spring.nana.pojo.PunchCardRecordVo;
-import com.accp.spring.nana.service.PunchcardRecordService;
+import com.accp.spring.nana.pojo.PunchCardRecordS;
+import com.accp.spring.nana.service.PunchcardRecordSService;
 import com.accp.spring.nana.vo.StudentPunchcardrecordVo;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/pun")
-public class PunchcardRecordController {
+public class PunchcardRecordSController {
 	
 	@Autowired
-	private PunchcardRecordService punchcardRecordService;
+	private PunchcardRecordSService punchcardRecordService;
 	
 	//考勤人数
 	@GetMapping("/selectSum/{punchTime}")
-	public PunchCardRecordVo selectSum(@PathVariable String punchTime) {
+	public PunchCardRecordS selectSum(@PathVariable String punchTime) {
 		return this.punchcardRecordService.selectSum(punchTime);
 	}
 	//住寝总人数
@@ -33,10 +33,10 @@ public class PunchcardRecordController {
 	}
 	//男女生总人数
 	@GetMapping("/selectNanSum")
-	public PunchCardRecordVo selectNanSum() {
+	public PunchCardRecordS selectNanSum() {
 		int i=this.punchcardRecordService.selectNanSum(1);
 		int v=this.punchcardRecordService.selectNanSum(2);
-		PunchCardRecordVo pun=new PunchCardRecordVo();
+		PunchCardRecordS pun=new PunchCardRecordS();
 		pun.setNanSum(i);
 		pun.setNvSum(v);
 		return pun;

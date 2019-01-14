@@ -6,7 +6,7 @@ import java.io.Serializable;
  * @author 巴拉巴拉大灰狼
  *
  */
-public class Repairs implements Serializable{
+public class RepairsS implements Serializable{
 	private int id;//寝室报修id
 	private int stuId;//报修人（学生Id）
 	private int dormId;//寝室Id

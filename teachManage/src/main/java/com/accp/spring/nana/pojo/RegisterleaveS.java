@@ -6,7 +6,7 @@ import java.io.Serializable;
  * @author 巴拉巴拉大灰狼
  *
  */
-public class Registerleave implements Serializable{
+public class RegisterleaveS implements Serializable{
 	private int id;//不住寝登记表id
 	private int stuId;//学员id
 	private String startTime;//请假开始时间

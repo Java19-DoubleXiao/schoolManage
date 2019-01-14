@@ -6,8 +6,8 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.accp.spring.nana.mapper.RepairsMapper;
-import com.accp.spring.nana.pojo.Repairs;
+import com.accp.spring.nana.mapper.RepairsSMapper;
+import com.accp.spring.nana.pojo.RepairsS;
 import com.accp.spring.nana.vo.DormitoryVo;
 import com.accp.spring.nana.vo.RepairsVo;
 
@@ -15,14 +15,14 @@ import com.accp.spring.nana.vo.RepairsVo;
 public class RepairsService {
 
 	@Autowired
-	RepairsMapper repairsMapper;
+	RepairsSMapper repairsMapper;
 	
 	public List<DormitoryVo> selectRepairStates(int dormMangeId){
 		return this.repairsMapper.selectRepairStates(dormMangeId);
 	}
 	
 	public Object selectRepairs(int repairStates,int dormMangeId){
-		List<Repairs> repairs=this.repairsMapper.selectRepairs(repairStates,dormMangeId);
+		List<RepairsS> repairs=this.repairsMapper.selectRepairs(repairStates,dormMangeId);
 		if(repairs==null) {
 			return 0;
 		}

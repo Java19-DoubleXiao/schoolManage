@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.accp.spring.nana.pojo.ChangeSleep;
-import com.accp.spring.nana.pojo.Dormrelation;
+import com.accp.spring.nana.pojo.ChangeSleepS;
+import com.accp.spring.nana.pojo.DormrelationS;
 import com.accp.spring.nana.service.DormrelationService;
 import com.accp.spring.nana.vo.DormrelationVo;
 
@@ -29,7 +29,7 @@ public class DormrelationController {
 	DormrelationService dormrelationService;
 	
 	@PostMapping("/move/{bedId}")
-	public void move(@RequestBody Dormrelation dormrelation,@PathVariable int bedId) {
+	public void move(@RequestBody DormrelationS dormrelation,@PathVariable int bedId) {
 		this.dormrelationService.move(dormrelation,bedId);
 	}
 	@GetMapping("/selectDormrelations")

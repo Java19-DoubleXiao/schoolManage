@@ -2,7 +2,7 @@ package com.accp.spring.nana.pojo;
 
 import java.io.Serializable;
 
-public class ScoreSetting implements Serializable{
+public class ScoreSettingS implements Serializable{
 	/**
 	 * 扣分规则表
 	 */

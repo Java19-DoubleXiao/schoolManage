@@ -10,20 +10,20 @@ import org.springframework.core.annotation.SynthesizedAnnotation;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.accp.spring.nana.mapper.HealthrecordMapper;
-import com.accp.spring.nana.mapper.ScoresettingMapper;
-import com.accp.spring.nana.pojo.Healthrecord;
-import com.accp.spring.nana.pojo.Healthrecordimg;
-import com.accp.spring.nana.pojo.ScoreSetting;
+import com.accp.spring.nana.mapper.HealthrecordSMapper;
+import com.accp.spring.nana.mapper.ScoresettingSMapper;
+import com.accp.spring.nana.pojo.HealthrecordS;
+import com.accp.spring.nana.pojo.HealthrecordimgS;
+import com.accp.spring.nana.pojo.ScoreSettingS;
 import com.accp.spring.nana.vo.HealthrecordVo;
 
 @Service
 public class HealthrecordService {
 	
 	@Autowired
-	HealthrecordMapper healthrecordMapper;
+	HealthrecordSMapper healthrecordMapper;
 	@Autowired
-	ScoresettingMapper scoresettingMapper;
+	ScoresettingSMapper scoresettingMapper;
 	//根据宿管id查询被管辖的所有宿舍的卫生扣分情况
 	public List<HealthrecordVo> selectHealthrecord( int dormMangeId, String checkTime){
 		return this.healthrecordMapper.selectHealthrecord(dormMangeId, checkTime);
@@ -36,7 +36,7 @@ public class HealthrecordService {
 			return 0;
 		}else {
 			for (HealthrecordVo healthrecordVo : healthrecord) {
-				List<Healthrecordimg> healthrecordimgs=this.healthrecordMapper.selectHealthrecordimg(healthrecordVo.getId());
+				List<HealthrecordimgS> healthrecordimgs=this.healthrecordMapper.selectHealthrecordimg(healthrecordVo.getId());
 				healthrecordVo.setHealthrecordimgs(healthrecordimgs);
 			}
 			return healthrecord;
@@ -51,8 +51,8 @@ public class HealthrecordService {
 		String[] set=setId.split(",");
 		for (int i = 0; i < set.length; i++) {
 			System.out.println(Integer.parseInt(set[i]));
-			ScoreSetting scoreSetting=this.scoresettingMapper.selectScoreSetting(Integer.parseInt(set[i]));
-			Healthrecord hh=new Healthrecord();
+			ScoreSettingS scoreSetting=this.scoresettingMapper.selectScoreSetting(Integer.parseInt(set[i]));
+			HealthrecordS hh=new HealthrecordS();
 			hh.setSetId(Integer.parseInt(set[i]));
 			hh.setCheckId(checkId);
 			hh.setCheckType(2);

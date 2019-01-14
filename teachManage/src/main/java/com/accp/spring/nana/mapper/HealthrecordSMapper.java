@@ -7,11 +7,11 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import com.accp.spring.nana.pojo.Healthrecord;
-import com.accp.spring.nana.pojo.Healthrecordimg;
+import com.accp.spring.nana.pojo.HealthrecordS;
+import com.accp.spring.nana.pojo.HealthrecordimgS;
 import com.accp.spring.nana.vo.HealthrecordVo;
 
-public interface HealthrecordMapper {
+public interface HealthrecordSMapper {
 	//根据宿管id查询被管辖的所有宿舍的卫生扣分情况
 	@Select("SELECT a.`dormId`,a.`dormNum`,(SELECT SUM(score) FROM healthrecord\r\n" + 
 			"INNER JOIN `dormitory` ON `dormId`=healthrecord.`checkId`\r\n" + 
@@ -26,13 +26,13 @@ public interface HealthrecordMapper {
 	List<HealthrecordVo> selectHealthrecordDetail(@Param("dormId") int dormId ,@Param("checkTime") String checkTime);
 	//根据卫生id查询卫生图片
 	@Select("SELECT * FROM `healthrecordimg` WHERE `HealthRecordId`=#{HealthRecordId}")
-	List<Healthrecordimg> selectHealthrecordimg(@Param("HealthRecordId") int HealthRecordId);
+	List<HealthrecordimgS> selectHealthrecordimg(@Param("HealthRecordId") int HealthRecordId);
 	
 	//新增寝室卫生
 	@Insert("INSERT INTO healthrecord(setId,checkId,checkType,score,checkPerson)\r\n" + 
 			"VALUES(#{setId},#{checkId},#{checkType},#{score},#{checkPerson})")
 	@Options(useGeneratedKeys=true,keyColumn="id",keyProperty="id")
-	int insertHealthrecord(Healthrecord healthrecord);
+	int insertHealthrecord(HealthrecordS healthrecord);
 	//新增卫生图片
 	@Insert("INSERT INTO healthrecordimg(HealthRecordId,dormMangeId,imgPath)\r\n" + 
 			"VALUES(#{HealthRecordId},#{dormMangeId},#{imgPath})")

@@ -5,16 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.accp.spring.nana.mapper.ScoresettingMapper;
-import com.accp.spring.nana.pojo.ScoreSetting;
+import com.accp.spring.nana.mapper.ScoresettingSMapper;
+import com.accp.spring.nana.pojo.ScoreSettingS;
 
 @Service
-public class ScoresettingService {
+public class ScoresettingSService {
 	
 	@Autowired
-	ScoresettingMapper scoresettingMapper;
+	ScoresettingSMapper scoresettingMapper;
 	
-	public List<ScoreSetting> selectAll(){
+	public List<ScoreSettingS> selectAll(){
 		return this.scoresettingMapper.selectAll();
 		
 	}

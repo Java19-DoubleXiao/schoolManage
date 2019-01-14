@@ -7,13 +7,13 @@ import java.util.List;
  * @author 巴拉巴拉大灰狼
  *
  */
-public class Dormitory implements Serializable{
+public class DormitoryS implements Serializable{
 	private int dormId;//寝室Id
 	private String dormNum;//寝室号
 	private int dormMangeId;//宿管Id
 	private int adminId;//寝室长(学员Id)
 	private int dormType;//寝室类别(男1，女2)
-	private List<Bed> bed;//床位集合
+	private List<BedS> bed;//床位集合
 	public int getDormId() {
 		return dormId;
 	}
@@ -44,10 +44,10 @@ public class Dormitory implements Serializable{
 	public void setDormType(int dormType) {
 		this.dormType = dormType;
 	}
-	public List<Bed> getBed() {
+	public List<BedS> getBed() {
 		return bed;
 	}
-	public void setBed(List<Bed> bed) {
+	public void setBed(List<BedS> bed) {
 		this.bed = bed;
 	}
 	@Override

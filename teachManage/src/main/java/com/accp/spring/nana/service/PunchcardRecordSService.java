@@ -10,19 +10,19 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.accp.spring.nana.mapper.PunchcardRecordMapper;
-import com.accp.spring.nana.pojo.PunchCardRecordVo;
-import com.accp.spring.nana.pojo.PunchCardSetting;
-import com.accp.spring.nana.pojo.Registerleave;
+import com.accp.spring.nana.mapper.PunchcardRecordSMapper;
+import com.accp.spring.nana.pojo.PunchCardRecordS;
+import com.accp.spring.nana.pojo.PunchCardSettingS;
+import com.accp.spring.nana.pojo.RegisterleaveS;
 import com.accp.spring.nana.vo.StudentPunchcardrecordVo;
 
 @Service
-public class PunchcardRecordService {
+public class PunchcardRecordSService {
 	
 	@Autowired
-	PunchcardRecordMapper punchcardRecordMapper;
+	PunchcardRecordSMapper punchcardRecordMapper;
 	
-	public PunchCardRecordVo selectSum(String punchTime) {
+	public PunchCardRecordS selectSum(String punchTime) {
 		return this.punchcardRecordMapper.selectSum(punchTime);
 	}
 	public int selectSums() {
@@ -32,7 +32,7 @@ public class PunchcardRecordService {
 		return this.punchcardRecordMapper.selectNanSum(stuSex);
 	}
 	public List<StudentPunchcardrecordVo> selectPun(String time,int States,int dormMangeId){
-		PunchCardSetting pc = this.punchcardRecordMapper.selectSetting(3);
+		PunchCardSettingS pc = this.punchcardRecordMapper.selectSetting(3);
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
 		//System.out.println();// new Date()为获取当前系统时间
 		String beginTime = "";
@@ -58,10 +58,10 @@ public class PunchcardRecordService {
 			try {
 				if(stu.getPunchTime()==null) {
 					//判断缺卡是请假还是未到
-					List<Registerleave> reg=this.punchcardRecordMapper.selectRegisterleave(beginTime);
+					List<RegisterleaveS> reg=this.punchcardRecordMapper.selectRegisterleave(beginTime);
 					if(reg!=null) {
 						int isLeave = 0;
-						for (Registerleave registerleave : reg) {
+						for (RegisterleaveS registerleave : reg) {
 							if(registerleave.getStuId()==stu.getStuId()) {
 								//如果请假数据对的上
 								isLeave = 1;

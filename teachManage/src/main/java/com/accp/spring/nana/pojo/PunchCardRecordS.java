@@ -2,7 +2,7 @@ package com.accp.spring.nana.pojo;
 
 import java.io.Serializable;
 
-public class PunchCardRecord implements Serializable{
+public class PunchCardRecordS implements Serializable{
 	
 	/**
 	 * 打卡记录表

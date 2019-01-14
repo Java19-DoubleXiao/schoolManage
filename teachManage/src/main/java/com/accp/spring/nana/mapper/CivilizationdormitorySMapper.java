@@ -6,10 +6,10 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import com.accp.spring.nana.pojo.Civilizationdormitory;
+import com.accp.spring.nana.pojo.CivilizationdormitoryS;
 import com.accp.spring.nana.vo.CivilizationdormitoryVo;
 
-public interface CivilizationdormitoryMapper {
+public interface CivilizationdormitorySMapper {
 	
 	//根据宿管id所有文明寝室
 	@Select("SELECT a.`dormId`,a.`dormNum`,\r\n" + 
@@ -23,5 +23,5 @@ public interface CivilizationdormitoryMapper {
 	//新增文明寝室
 	@Insert("INSERT INTO civilizationdormitory(dormId,startTime,endTime,fraction)\r\n" + 
 			"VALUES(#{dormId},now(),now(),#{fraction})")
-	int insertCiv(Civilizationdormitory civilizationdormitory);
+	int insertCiv(CivilizationdormitoryS civilizationdormitory);
 }

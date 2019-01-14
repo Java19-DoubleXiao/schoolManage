@@ -2,7 +2,7 @@ package com.accp.spring.nana.pojo;
 
 import java.io.Serializable;
 
-public class PunchCardSetting implements Serializable{
+public class PunchCardSettingS implements Serializable{
 	
 	/**
 	 * 打卡时间设置表

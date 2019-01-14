@@ -15,25 +15,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.accp.spring.nana.pojo.Healthrecord;
-import com.accp.spring.nana.pojo.Healthrecordimg;
-import com.accp.spring.nana.pojo.ScoreSetting;
+import com.accp.spring.nana.pojo.HealthrecordS;
+import com.accp.spring.nana.pojo.HealthrecordimgS;
+import com.accp.spring.nana.pojo.ScoreSettingS;
 import com.accp.spring.nana.service.HealthrecordService;
-import com.accp.spring.nana.service.ScoresettingService;
+import com.accp.spring.nana.service.ScoresettingSService;
 import com.accp.spring.nana.vo.HealthrecordVo;
 @CrossOrigin
 @RestController
 @RequestMapping("/sco")
 public class HealthrecordController {
 	@Autowired
-	ScoresettingService scoresettingService;
+	ScoresettingSService scoresettingService;
 	
 	@Autowired
 	HealthrecordService healthrecordService;
 	
 	//查询所有寝室扣分制度
 	@GetMapping("/selectAll")
-	public List<ScoreSetting> selectAll(){
+	public List<ScoreSettingS> selectAll(){
 		return this.scoresettingService.selectAll();
 		
 	}

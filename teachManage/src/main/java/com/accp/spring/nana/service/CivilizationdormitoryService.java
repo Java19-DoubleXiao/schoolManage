@@ -7,14 +7,14 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.accp.spring.nana.mapper.CivilizationdormitoryMapper;
-import com.accp.spring.nana.pojo.Civilizationdormitory;
+import com.accp.spring.nana.mapper.CivilizationdormitorySMapper;
+import com.accp.spring.nana.pojo.CivilizationdormitoryS;
 import com.accp.spring.nana.vo.CivilizationdormitoryVo;
 
 @Service
 public class CivilizationdormitoryService {
 	@Autowired
-	CivilizationdormitoryMapper civilizationdormitoryMapper;
+	CivilizationdormitorySMapper civilizationdormitoryMapper;
 	
 	public Object selectAll(int dormMangeId,String startTime){
 		List<CivilizationdormitoryVo> civilizationdormitoryVos=this.civilizationdormitoryMapper.selectAll(dormMangeId,startTime);
