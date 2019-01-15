@@ -45,9 +45,8 @@ public interface ExamMapper {
 	
 	//查询出这个教员使用过的历史试卷
 	@Select("SELECT DISTINCT(eph.`paperId`),eph.`paperName`,eph.`passrate` FROM exampaperhistory eph\r\n" + 
-			"INNER JOIN Examination ex ON ex.`examPaperId`=eph.`paperId`\r\n" + 
-			"WHERE eph.isForbid=1\r\n" + 
-			"ORDER BY ex.`startTime` DESC")
+			"WHERE eph.`isForbid`=1\r\n" + 
+			"ORDER BY eph.`createTime` DESC")
 	List<ExamPaperHistory> selectHisByTeaId();
 	
 	
